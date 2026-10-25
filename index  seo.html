@@ -1,0 +1,926 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ClickGrow Digital | Grow Your Business Online</title>
+
+    <meta name="description" content="Digital marketing, SEO, Google Ads, social media marketing and website development.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --background: #101114;
+            --surface: #191a20;
+            --surface-light: #22232b;
+            --accent: #a78bfa;
+            --accent-dark: #8061ed;
+            --text: #f5f5f7;
+            --muted: #b0b2c0;
+            --border: #30313b;
+            --whatsapp: #25d366;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font: inherit;
+        }
+
+        .container {
+            width: min(1150px, 90%);
+            margin: auto;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        header {
+            background: rgba(16, 17, 20, 0.92);
+            backdrop-filter: blur(15px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .navbar {
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 23px;
+            border-radius: 8px;
+            background: var(--accent);
+            color: #171322;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s,
+                        box-shadow 0.3s;
+        }
+
+        .button:hover {
+            background: #c4b5fd;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px #a78bfa30;
+        }
+
+        .outline-button {
+            display: inline-block;
+            padding: 11px 22px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            transition: 0.3s;
+        }
+
+        .outline-button:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .tagline {
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .hero {
+            min-height: 650px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            align-items: center;
+            gap: 65px;
+            padding-top: 80px;
+            padding-bottom: 90px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 5.5vw, 70px);
+            line-height: 1.12;
+            letter-spacing: -2px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span,
+        .section-title span {
+            color: var(--accent);
+        }
+
+        .hero-description {
+            color: var(--muted);
+            max-width: 520px;
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .trust-text {
+            margin-top: 30px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .hero-visual {
+            position: relative;
+            padding: 35px;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            background:
+                radial-gradient(circle at top right, #a78bfa25, transparent 55%),
+                var(--surface);
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .growth-card {
+            background: #202127;
+            padding: 28px;
+            border-radius: 16px;
+            border: 1px solid #363744;
+            box-shadow: 0 20px 60px #00000035;
+        }
+
+        .card-top,
+        .chart-footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            font-size: 13px;
+        }
+
+        .status {
+            color: #54e6a0;
+        }
+
+        .growth-number {
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 25px;
+        }
+
+        .card-description {
+            color: var(--muted);
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .chart {
+            height: 150px;
+            display: flex;
+            align-items: end;
+            justify-content: space-around;
+            gap: 12px;
+            margin: 30px 0 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .chart-bar {
+            width: 10%;
+            background: linear-gradient(to top, #8061ed, #c4b5fd);
+            border-radius: 6px 6px 0 0;
+            transform-origin: bottom;
+            animation: growBar 1.3s ease-out both;
+        }
+
+        .bar1 { height: 30%; animation-delay: 0.1s; }
+        .bar2 { height: 45%; animation-delay: 0.2s; }
+        .bar3 { height: 38%; animation-delay: 0.3s; }
+        .bar4 { height: 60%; animation-delay: 0.4s; }
+        .bar5 { height: 55%; animation-delay: 0.5s; }
+        .bar6 { height: 78%; animation-delay: 0.6s; }
+        .bar7 { height: 100%; animation-delay: 0.7s; }
+
+        .chart-footer {
+            color: var(--muted);
+        }
+
+        .floating-card {
+            position: absolute;
+            bottom: -25px;
+            left: -25px;
+            background: #292a33;
+            border: 1px solid #40414c;
+            padding: 17px 20px;
+            border-radius: 12px;
+            box-shadow: 0 12px 30px #00000040;
+        }
+
+        .floating-card p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .services {
+            background: #14151a;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 55px;
+        }
+
+        .section-title {
+            font-size: clamp(30px, 4vw, 45px);
+            line-height: 1.25;
+            margin-bottom: 18px;
+        }
+
+        .section-heading > p:last-child {
+            color: var(--muted);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .service-card {
+            padding: 28px 23px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            transition: transform 0.35s, border-color 0.35s,
+                        box-shadow 0.35s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 15px 35px #00000030;
+        }
+
+        .service-icon {
+            width: 55px;
+            height: 55px;
+            display: grid;
+            place-items: center;
+            border-radius: 12px;
+            background: #a78bfa1c;
+            color: var(--accent);
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 22px;
+        }
+
+        .service-card h3 {
+            font-size: 19px;
+            line-height: 1.4;
+            margin-bottom: 13px;
+        }
+
+        .service-card p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .service-card a {
+            color: var(--accent);
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-content > p:not(.tagline) {
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+
+        .about-content .button {
+            margin-top: 10px;
+        }
+
+        .about-box {
+            padding: 55px 40px;
+            min-height: 330px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 1px solid #a78bfa50;
+            border-radius: 22px;
+            background:
+                radial-gradient(circle at top right, #a78bfa30, transparent 60%),
+                var(--surface);
+        }
+
+        .about-box h3 {
+            font-size: 36px;
+            line-height: 1.3;
+        }
+
+        .about-box .accent-text {
+            color: var(--accent);
+        }
+
+        .about-box p {
+            color: var(--muted);
+            margin-top: 15px;
+        }
+
+        .contact {
+            background: #14151a;
+            border-top: 1px solid var(--border);
+        }
+
+        .contact-form {
+            max-width: 650px;
+            margin: auto;
+            padding: 35px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 17px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin: 18px 0 8px;
+            font-weight: bold;
+            color: var(--text);
+        }
+
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 13px;
+            color: var(--text);
+            background: #111216;
+            border: 1px solid #383944;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .contact-form input:focus,
+        .contact-form select:focus,
+        .contact-form textarea:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px #a78bfa18;
+        }
+
+        .contact-form select option {
+            background: #191a20;
+        }
+
+        .contact-form button {
+            margin-top: 22px;
+        }
+
+        .form-message {
+            color: #54e6a0;
+            margin-top: 15px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .footer p {
+            color: var(--muted);
+            margin-top: 8px;
+        }
+
+        .copyright {
+            font-size: 13px;
+        }
+
+        /* Floating WhatsApp button */
+
+        .whatsapp-button {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            background: var(--whatsapp);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 25px #25d36650;
+            z-index: 2000;
+            transition: transform 0.3s;
+            animation: whatsappPulse 2s infinite;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.12);
+        }
+
+        .whatsapp-button svg {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+
+        /* Entrance animations */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes growBar {
+            from {
+                transform: scaleY(0);
+            }
+            to {
+                transform: scaleY(1);
+            }
+        }
+
+        @keyframes whatsappPulse {
+            0%, 100% {
+                box-shadow: 0 5px 25px #25d36650;
+            }
+            50% {
+                box-shadow: 0 5px 35px #25d36690;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        @media (max-width: 950px) {
+            .hero {
+                gap: 35px;
+            }
+
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-grid {
+                gap: 35px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .navbar {
+                padding: 18px 0;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 18px;
+                font-size: 14px;
+            }
+
+            .navbar > .button {
+                display: none;
+            }
+
+            .hero,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 60px;
+                padding-bottom: 80px;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .hero-visual {
+                padding: 25px 18px;
+            }
+
+            .floating-card {
+                left: 5px;
+                bottom: -30px;
+            }
+
+            .section {
+                padding: 70px 0;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 22px;
+            }
+
+            .about-box {
+                padding: 35px 25px;
+            }
+
+            .whatsapp-button {
+                width: 56px;
+                height: 56px;
+                right: 16px;
+                bottom: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar container">
+            <a href="#home" class="logo">ClickGrow<span>.</span></a>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <a href="#contact" class="button">Let's Talk</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero container" id="home">
+            <div class="hero-content">
+                <p class="tagline">Your Digital Growth Partner</p>
+
+                <h1>
+                    We Help Your Business
+                    <span>Grow Online.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Smart digital marketing strategies that help your
+                    business reach more people, generate leads and grow faster.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#contact" class="button">Get Started</a>
+                    <a href="#services" class="outline-button">Explore Services</a>
+                </div>
+
+                <p class="trust-text">
+                    SEO | Google Ads | Social Media | Web Development
+                </p>
+            </div>
+
+            <div class="hero-visual">
+                <div class="growth-card">
+                    <div class="card-top">
+                        <span>Business Growth</span>
+                        <span class="status">Online</span>
+                    </div>
+
+                    <div class="growth-number">Grow Your Reach</div>
+
+                    <p class="card-description">
+                        The right strategy. The right audience.
+                    </p>
+
+                    <div class="chart">
+                        <div class="chart-bar bar1"></div>
+                        <div class="chart-bar bar2"></div>
+                        <div class="chart-bar bar3"></div>
+                        <div class="chart-bar bar4"></div>
+                        <div class="chart-bar bar5"></div>
+                        <div class="chart-bar bar6"></div>
+                        <div class="chart-bar bar7"></div>
+                    </div>
+
+                    <div class="chart-footer">
+                        <span>Strategy</span>
+                        <span>Growth</span>
+                        <span>Results</span>
+                    </div>
+                </div>
+
+                <div class="floating-card">
+                    <strong>Ready to Grow?</strong>
+                    <p>Build your online presence.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="services section" id="services">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <p class="tagline">What We Do</p>
+                    <h2 class="section-title">
+                        Digital Services That <span>Drive Growth</span>
+                    </h2>
+                    <p>
+                        Everything your business needs to build a strong online presence.
+                    </p>
+                </div>
+
+                <div class="service-grid">
+                    <article class="service-card reveal">
+                        <div class="service-icon">SEO</div>
+                        <h3>Search Engine Optimization</h3>
+                        <p>
+                            Improve your website's visibility on search engines
+                            and help potential customers find your business.
+                        </p>
+                        <a href="#contact">Explore SEO</a>
+                    </article>
+
+                    <article class="service-card reveal">
+                        <div class="service-icon">ADS</div>
+                        <h3>Google Ads</h3>
+                        <p>
+                            Reach relevant audiences through targeted advertising
+                            campaigns designed around your business goals.
+                        </p>
+                        <a href="#contact">Explore Ads</a>
+                    </article>
+
+                    <article class="service-card reveal">
+                        <div class="service-icon">SMM</div>
+                        <h3>Social Media Marketing</h3>
+                        <p>
+                            Build your brand on social platforms with engaging
+                            content and marketing campaigns.
+                        </p>
+                        <a href="#contact">Explore Social Media</a>
+                    </article>
+
+                    <article class="service-card reveal">
+                        <div class="service-icon">WEB</div>
+                        <h3>Website Development</h3>
+                        <p>
+                            Create responsive, attractive websites that present
+                            your business professionally on every screen.
+                        </p>
+                        <a href="#contact">Explore Websites</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="about section" id="about">
+            <div class="about-grid container">
+                <div class="about-content reveal">
+                    <p class="tagline">About ClickGrow</p>
+
+                    <h2 class="section-title">
+                        Your Business Deserves a
+                        <span>Stronger Online Presence.</span>
+                    </h2>
+
+                    <p>
+                        We help businesses build their digital presence through
+                        website development, search engine optimization,
+                        online advertising and social media marketing.
+                    </p>
+
+                    <p>
+                        Our focus is simple: understand your goals, create a
+                        suitable strategy and continuously improve your online
+                        marketing efforts.
+                    </p>
+
+                    <a href="#contact" class="button">Work With Us</a>
+                </div>
+
+                <div class="about-box reveal">
+                    <h3>Think Digital.</h3>
+                    <h3 class="accent-text">Grow Smarter.</h3>
+                    <p>
+                        Let's turn your business goals into a digital strategy.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact section" id="contact">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <p class="tagline">Let's Work Together</p>
+                    <h2 class="section-title">
+                        Ready to Grow Your <span>Business?</span>
+                    </h2>
+                    <p>
+                        Tell us about your project. Let's discuss how we can help.
+                    </p>
+                </div>
+
+                <form class="contact-form reveal" id="contactForm">
+                    <label for="name">Your Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+                    <label for="email">Email Address</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                    <label for="service">Service You Need</label>
+                    <select id="service" name="service" required>
+                        <option value="">Select a service</option>
+                        <option value="SEO">SEO</option>
+                        <option value="Google Ads">Google Ads</option>
+                        <option value="Social Media Marketing">Social Media Marketing</option>
+                        <option value="Website Development">Website Development</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                    <label for="message">Project Details</label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="4"
+                        placeholder="Tell us about your business or project"
+                        required
+                    ></textarea>
+
+                    <button type="submit" class="button">Send Enquiry</button>
+
+                    <p id="formMessage" class="form-message" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <a href="#home" class="logo">ClickGrow<span>.</span></a>
+        <p>Helping businesses build their digital future.</p>
+        <p class="copyright">
+            Copyright <span id="year"></span> ClickGrow Digital.
+            All rights reserved.
+        </p>
+    </footer>
+
+    <!-- WhatsApp floating button -->
+    <a
+        class="whatsapp-button"
+        href="https://wa.me/919876543210?text=Hello%20ClickGrow%20Digital%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services."
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat with ClickGrow Digital on WhatsApp"
+        title="Chat on WhatsApp"
+    >
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M16 .8A15.1 15.1 0 0 0 3.1 23.7L1 31l7.5-2A15.1 15.1 0 1 0 16 .8Zm0 27.5a12.4 12.4 0 0 1-6.3-1.7l-.5-.3-4.4 1.2 1.2-4.3-.3-.5A12.4 12.4 0 1 1 16 28.3Zm6.8-9.3c-.4-.2-2.1-1-2.4-1.1-.3-.1-.6-.2-.8.2-.2.4-.9 1.1-1.1 1.3-.2.2-.4.3-.8.1-.4-.2-1.5-.6-2.9-1.8-1.1-1-1.8-2.1-2-2.5-.2-.4 0-.6.2-.8l.5-.6c.2-.2.3-.4.4-.6.1-.2 0-.5 0-.6-.1-.2-.8-1.9-1.1-2.6-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.4-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.4 3.7 5.8 5.1.8.3 1.4.5 1.9.6.8.2 1.5.2 2 .1.6-.1 2.1-.9 2.4-1.7.3-.8.3-1.5.2-1.7-.1-.1-.3-.2-.7-.4Z"/>
+        </svg>
+    </a>
+
+    <script>
+        // Automatically update the copyright year.
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+        // Reveal sections when they enter the screen.
+        const revealElements = document.querySelectorAll(".reveal");
+
+        if ("IntersectionObserver" in window) {
+            const observer = new IntersectionObserver(
+                function(entries, currentObserver) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("visible");
+                            currentObserver.unobserve(entry.target);
+                        }
+                    });
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+            revealElements.forEach(function(element) {
+                observer.observe(element);
+            });
+        } else {
+            revealElements.forEach(function(element) {
+                element.classList.add("visible");
+            });
+        }
+
+        // Demonstration form submission.
+        document.getElementById("contactForm").addEventListener(
+            "submit",
+            function(event) {
+                event.preventDefault();
+
+                document.getElementById("formMessage").textContent =
+                    "Thank you for your enquiry. Please contact us on WhatsApp to continue.";
+
+                this.reset();
+            }
+        );
+    </script>
+
+</body>
+</html>
+
